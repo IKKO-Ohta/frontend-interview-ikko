@@ -1,2 +1,4 @@
 # frontend-interview-ikko
-frontend-interview my answer
+answering:
+[frontend-interview](https://github.com/yangshun/front-end-interview-handbook) 
+thank @yangshun!
