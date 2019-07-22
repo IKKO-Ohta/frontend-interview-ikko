@@ -60,14 +60,14 @@ duplicate([1,2,3,4,5]); // [1,2,3,4,5,1,2,3,4,5]
 
 -   Create a for loop that iterates up to `100` while outputting **"fizz"** at multiples of `3`, **"buzz"** at multiples of `5` and **"fizzbuzz"** at multiples of `3` and `5`
 
-## Explain event delegation.
+## イベント デリゲーションについて説明せよ。
 
-イベント デリゲーションは、親要素が子要素に対し同一のイベントリスナの参照を与えることをいい、JavaScriptによる直接的なDOM操作の一つである。イベント デリゲーションを用いると、たとえば`ul`配下の複数の`li`に同一の`onclick`を渡すことができる。`event delegation`命令で最もよく用いられるのは`EventTarget.addEventListener()`メソッドで、このメソッドはイベントに対応する任意オブジェクトの子どもたちに対して再帰的に機能する。
+イベント デリゲーションは、親要素が子要素に対し同一のイベントリスナの参照を与えることをいい、JavaScriptによる直接的なDOM操作の一つである。イベント デリゲーションを用いると、たとえば`ul`配下の複数の`li`に同一の`onclick`を渡すことができる。`event delegation`命令で最もよく用いられるのは`EventTarget.addEventListener()`メソッドで、このメソッドはイベントに対応する任意オブジェクトの子要素たちに対して再帰的に機能する。
 
 -   [JS Interview: Explain Event Delegation by Matthew Holman](https://link.medium.com/WyXdP1CUdX)
 -   [MDN](https://developer.mozilla.org/ja/docs/Web/API/EventTarget/addEventListener)
 
-## Explain how this works in JavaScript.
+## JavaScriptにおける`this`の働きについて説明せよ。
 
 `this`はjsにおいて他の言語と違った特性を見せる。特に`this`は関数の **呼ばれ方** によって決定され、その関数の **内部で決定されない** という特性がある。  
 より詳しく言うと、グローバルコンテクストにおいて`this`はグローバルオブジェクトに等しい。例えば、
@@ -94,7 +94,7 @@ var o = {
     ](https://www.educative.io/collection/page/5679346740101120/5707702298738688/5676830073815040)  
 -   [MDN](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/this)
 
-## Explain how prototypal inheritance works.
+## プロトタイプ継承がどのように振る舞うか説明せよ。
 
 プロトタイプの継承の振る舞いについて、まずJavaScriptにおけるプロトタイプについて説明し、それから本題のプロトタイプ継承について議論する。プロトタイプとは、JavaScriptのすべてのオブジェクトがもつ原型であり、他のオブジェクトへの内部的な繋がりである。プロトタイプ オブジェクトそのものもプロトタイプをもっており、その連鎖は最後には`null`に行き着く(`null`はプロトタイプをもたない)。そのようなプロトタイプの繋がりをプロトタイプチェーンと呼ぶ。  
 そして本題に入ると、プロトタイプの継承とは、このプロトタイプチェーンを結ぶことに相当する。より具体的にいうと、`extended.a`が命令されると、JavaScriptはオブジェクト`extended`のプロパティをまず探し、そこに適切なプロパティが見当たらないと、継承元である`origin`に`.a`がないかを探しに行く。このようにして遡っていき、お目当てのものを見つけると探索を打ち切ってその答えを返す。これがプロトタイプチェーンによって実現されるプロパティ継承である。
@@ -113,13 +113,17 @@ var a1 = new A()
 
 [MDN - プロトタイプチェーン](https://developer.mozilla.org/ja/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain)
 
-## What's the difference between a variable that is: null, undefined or undeclared?
+## `null`と`undefined`と`undeclared`の違いについて説明せよ。
 
 `null`はリテラルで`undefined`はグローバルオブジェクトである。`undeclared`はプロトタイプチェーン上を探索した結果そのプロパティが見当たらなかったという探索結果の表明であり、リテラルやオブジェクトではない。
-開発の立場では、`null`と`undefined`は 1)厳密等価演算子`===`では等しくないこと、2) `null`はプロパティが存在しないことを明示するために用いられるが`undefined`はそうではないこと、を特に覚えておく必要がある。
-\[]
+開発の立場では、`null`と`undefined`は 
 
-## What is a closure, and how/why would you use one?
+1.  厳密等価演算子`===`では等しくないこと
+2.  `null`はプロパティが存在しないことを明示するために用いられること
+
+を特に覚えておく必要がある。
+
+## クロージャについて述べよ。クロージャとは何か、どのように機能するか、利用する理由について特に説明せよ。
 
 クロージャは独立した変数を参照する関数である。もう少し詳しく言うと、クロージャという概念は関数そのものと関数が生成された環境に分割される。
 
@@ -143,7 +147,7 @@ console.log(add10(2)); // 12 と表示される
 
 [MDN - closure](https://developer.mozilla.org/ja/docs/Web/JavaScript/Closures)
 
-## What language constructions do you use for iterating over object properties and array items?
+## オブジェクトのイテレーションにどんな構文を用いるか述べよ。
 
 -   `for/in`
 -   `forEach`
@@ -157,7 +161,7 @@ JavaScriptにはたくさんのループがあり、気に入ったものやそ�
 
 [MDN - map](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
 
-## What's a typical use case for anonymous functions?
+## 無名関数のユースケースを一つ示せ。
 
 ES2015以降、無名関数はアロー関数として用いられることが多くなった。例えば`Promise()`は良い例で、多くのコードがpromiseに無名関数（アロー関数記法）を用いている。
 
@@ -173,14 +177,19 @@ promise.then((v) =>{
 })
 ```
 
-## What's the difference between host objects and native objects?
+## host objects と native objectsの違いを述べよ。
 
 どちらもグローバルスコープにある概念だが、host objectは`window`や`document`のように実行環境によって提供されるオブジェクトである。一方native objectはJavaScriptが組み込みとして持っているオブジェクトである。たとえば`Array`はそうである。
-[MDN]\(<https://developer.mozilla.org/ja/docs/Web/API/document>
 
-注）テクニカルタームとして`host object` `native object`という語があるわけではないようだ。少し調べてみると「開眼! JavaScirpt」に書いてある分類概念のようだが。
+[MDN - document](https://developer.mozilla.org/ja/docs/Web/API/document)
 
-## Explain the difference between: function Person(){}, var person = Person(), and var person = new Person()?
+注）テクニカルタームとして`host object`および`native object`という語があるわけではないようだ。少し調べてみると「開眼! JavaScirpt」に書いてある分類概念のようである。
+
+## 次の3つの文の違いを説明せよ
+
+```
+function Person(){}, var person = Person(), var person = new Person()
+```
 
 この問題を言い換えると、`new`演算子が何者でどのような振る舞いをするか、結果としてどのような返り値になるかということである。ゆえに、`new`演算子について説明する。
 `new`演算子は組み込みの計算でオブジェクトのインスタンスを定義するものである。`new Person()`をすると、まず`Person.prototype`を継承する新しいオブジェクトが生成される。次にコンストラクタが呼ばれる。指定した引数があればそれを利用してオブジェクト内部の計算が行われる。最後に完成したオブジェクトが返り値として表現される。
@@ -188,7 +197,7 @@ promise.then((v) =>{
 
 [MDN - new](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/new)
 
-## Can you explain what Function.call and Function.apply do? What's the notable difference between the two?
+## Function.call および Function.applyの働きを説明せよ。またその顕著な違いについても説明せよ。
 
 `Function.call`はあるオブジェクトに所属するプロパティを、別なオブジェクトに割り当てて呼ぶ関数である。
 
@@ -237,7 +246,11 @@ console.log(boundGetX());
 
 (蛇足:bindといえば過去のバージョンのReactのmethod.bind(this)を思い出す)
 
-## What's the difference between feature detection, feature inference, and using the UA string?
+## 以下の各語の違いを示せ。
+
+```
+feature detection, feature inference, using the UA string
+```
 
 -   Feature Detectionはある機能がその環境でサポートされているかを調べるコードである。その方法はいくつかあるが、基本的な戦略はグローバルオブジェクトの中に期待するメンバが含まれているかどうかを調べるということである。例えばユーザの物理位置情報について知りたければ`window.navigator`の`geolocation`が定義されているかどうかを調べる。
 -   Feature interfaceはそのメンバがあるという前提で書かれる処理である。
@@ -249,16 +262,16 @@ console.log(boundGetX());
 
  Feature Interfaceについては正確な資料が見つからない状況である。
 
-## Explain "hoisting".
+## 巻き上げについて説明せよ。
 
-`hoisting/巻き上げ`はJavaScriptのコードの処理順の独特な機構である。`var`や`Function`などの定義宣言はファイルの先頭にあるものとして扱う。一方でその実行や初期化についてはその処理を実行しない。
+`巻き上げ`はJavaScriptのコードの処理順の独特な機構である。`var`や`Function`などの定義宣言はファイルの先頭にあるものとして扱う。一方でその実行や初期化についてはその処理を実行しない。
 なお、現代的な変数宣言であるところの`let`および`const`では(一般的な局面では)巻き上げが起こらない。
 
 [MDN - Hoisting](https://developer.mozilla.org/ja/docs/Glossary/Hoisting)
 
-## Describe event bubbling.
+## event bubblingについて書け。
 
-## Describe event capturing.
+## event capturingについて書け。
 
  eventのbubblingとcapturingは対の関係にある語なのでまとめて説明する。
  HTML要素は通常入れ子状になっている。ある要素においてイベントが発火したとき、そのイベントはどのように伝搬するだろうか。bubblingとcapturingはその伝搬方法である。　
@@ -266,36 +279,36 @@ console.log(boundGetX());
 -   子から親にイベントが流れていくことをbubblingという。
 -   親から子にイベントが流れていくことをcapturingという。
 
-( TODO: capturingのコードを書く状況が思いつかないのだけど理屈としては書きうるよな、というくらいです。モダンなコードで書く例があったら追記したいので教えて下さいmm)
+( TODO: capturingのコードを書く状況が思いつかないのだけど理屈としては書きうるよな、というくらいです。モダンなコードで書く例があったら追記したいので教えて下さいmm)  
 [medium - @nupoor_neha](https://medium.com/@nupoor_neha/javascript-front-end-interview-questions-1cbc5e32792b)  
 
-## What's the difference between an "attribute" and a "property"?
+## attributeとプロパティの違いを説明せよ。
 
 簡単に言うとattributeはDOM要素に渡す引数で、propertyはオブジェクトのメンバ変数である。
 attributeは、Documentオブジェクト上では`Element.attributes()`によって返却されるリストである。それらのリスト要素を参照してレンダラは適切な修飾を与えて描画する。一方でpropertyは(特にJavaScriptにおいて)あるデータ構造と関連づけられた情報群を指す。オブジェクトに与えられるメンバ変数と言い換えてもよい。
 
 [MDN - attributes](https://developer.mozilla.org/ja/docs/Web/API/Element/attributes)
 
-## What are the pros and cons of extending built-in JavaScript objects?
+## JavaScriptの組み込みオブジェクトを拡張する利点と欠点について述べよ。
 
 組み込みオブジェクトを **拡張してはいけない** 。組み込みオブジェクトはグローバルに位置するために、これを改変することは他人のコードを破壊することにつながる。
 
 [MDN - Global Object](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects)
 
-## What is the difference between == and ===?
+## `==` と `===` の違いを説明せよ。
 
 両者はそれぞれ等価演算子と厳密等価演算子と呼ばれ、通常同値の判定には`==`ではなく`===`を使うべきである。両者のもっとも大きな違いは`==`においては暗黙的に型変換が行われることだろう。逆に`===`では型変換が起こらず、型が異なった時点で右辺と左辺は異なるオブジェクトとして判定する。
-[MDN](https://developer.mozilla.org/ja/docs/Web/JavaScript/Equality_comparisons_and_sameness)
+[MDN - Euality](https://developer.mozilla.org/ja/docs/Web/JavaScript/Equality_comparisons_and_sameness)
 
-## Explain the same-origin policy with regards to JavaScript.
+## 同一オリジンポリシーについてJavaScirptの観点から説明せよ。
 
-同一オリジンポリシー/same-origin policyとは、あるオリジンから読み込まれた文書やスクリプトは、他のオリジンからのスクリプトに改変されないという原則である。同一オリジンポリシーはウェブ セキュリティの重要な一項目であり、悪意ある行動を起こしかねないリソースを分離するのに役立つ。
-一方で、モダンなJavaScript web開発にとっては、クロスサイトリクエストすなわち異なるオリジンからの情報を入手することは必要不可欠なことである。例えばTwitterのSNSボタンは典型的なクロスサイトリクエストである。このようなアクセスを安全に許可する仕組みとしてオリジン間リソース共有/cross-origin resource sharing/CORSがある。
+同一オリジンポリシーとは、あるオリジンから読み込まれた文書やスクリプトは、他のオリジンからのスクリプトに改変されないという原則である。同一オリジンポリシーはウェブ セキュリティの重要な一項目であり、悪意ある行動を起こしかねないリソースを分離するのに役立つ。
+一方で、モダンなJavaScript web開発にとっては、クロスサイトリクエストすなわち異なるオリジンからの情報を入手することは必要不可欠なことである。例えばTwitterのSNSボタンは典型的なクロスサイトリクエストである。このようなアクセスを安全に許可する仕組みとしてオリジン間リソース共有/CORSがある。
 
 [MDN - Same Origin Policy](https://developer.mozilla.org/ja/docs/Web/Security/Same-origin_policy)  
 [MDN - CORS](https://developer.mozilla.org/ja/docs/Web/HTTP/CORS)
 
-## Why is it called a Ternary operator, what does the word "Ternary" indicate?
+## 三項演算子について説明せよ。またその命名の由来についても書け。
 
 `condition ? A : B`すなわち
 
@@ -309,20 +322,20 @@ if (condition) {
 
 である。三項/Ternaryは、例えば`+`や`-`が二つの項を取り扱う演算子であるのに対して、`?:`はcondition,A,Bの3つの項を取り扱う演算子であることを意味している。
 
-## What is strict mode? What are some of the advantages/disadvantages of using it?
+## Strict Modeとは何か。その長所と短所についても説明せよ。
 
 `use strict` strictモードはES5に存在した、その名の通り厳格な文法規則を定めるオプションである。[ECMA Script](http://www.ecma-international.org/ecma-262/6.0/#sec-strict-mode-code)によればES6は常にstrictモードで動作することが定められている。ナチュラルなJSと異なる点として代表的な要素を三つあげると、例えば予期しないグローバルオブジェクトの生成を防止することや、オブジェクト プロパティに対しての無効な代入を検知することや、`eval`の仕様がより単純になっていることが挙げられる。
 
 [MDN - strict mode](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Strict_mode)
 
-## What are some of the advantages/disadvantages of writing JavaScript code in a language that compiles to JavaScript?
+## JavaScriptへとコンパイルする言語について、利用することのメリットとデメリットを説明せよ。
 
- 問題のような言語で、最も勢いがある言語がTypeScriptであることは論を待たない。TypeScriptを採用するメリットはそれがスケールするからだとされている。言い換えると、保守性が高くランタイムエラーが生じにくくなる。また特にTypeScriptにはVSCodeを始めとする周辺ソフトウェアが整理されており、生産性が高いということである。
+ 問題のような言語(alt-js)で、最も勢いがある言語がTypeScriptであることは論を待たない。TypeScriptを採用するメリットはそれがスケールするからだとされている。言い換えると、保守性が高くランタイムエラーが生じにくくなる。また特にTypeScriptにはVSCodeを始めとする周辺ソフトウェアが整理されており、生産性が高いということである。
  TypeScriptはJSのsupersetであるから、JSに比べて不利な点はその設定にまつわる部分を除けば存在しない。チームメンバーが新しくTypeScriptを学ぶためのコストや、既存プロジェクトを順次TypeScriptに置き換える工数を鑑みて、その取引が特になるなら採用をするべきである。
 
 [TypeScript 公式ページ](https://www.typescriptlang.org/)
 
-## What tools and techniques do you use debugging JavaScript code?
+## JavaScriptのデバッグについて、あなたのツールやテクニックを説明せよ。
 
 -   console デバッグ  
     consoleオブジェクトには`.log()`だけでなく`.table()`などの機能もある。どんな場合にも使えるもっとも基本的なデバッグ手法である。
@@ -331,13 +344,13 @@ if (condition) {
 -   テストを書く  
     テストを書くことはデバッグのために重要である。テストを書いていれば、プログラムのうちどの部分までは正常なのか担保できる。それは発生したバグの範囲を絞り込むことに繋がり、結果的にデバッグに貢献する。
 
-## Explain the difference between mutable and immutable objects.
+## ミュータブル / イミュータブル なオブジェクトについての問いに答えよ.
 
-### What is an example of an immutable object in JavaScript?
+### イミュータブルなオブジェクトの例を一つ挙げよ。
 
   `string` はその一例である。
 
-### What are the pros and cons of immutability?
+### オブジェクトがイミュータブルであることの利点と欠点を述べよ。
 
 pros:  
 
@@ -347,17 +360,18 @@ cons:
 
 -   実装の自由度を犠牲にする。
 
-### How can you achieve immutability in your own code?
+### あなたのコードをイミュータブルにするにはどのようにしたらよいかを説明せよ。
 
   immutable.jsを使うとよい。  
   [immutable js 公式ページ](https://immutable-js.github.io/immutable-js/docs/#/)
 
-## Explain the difference between synchronous and asynchronous functions.
+## 同期処理と非同期処理の違いについて説明せよ。
 
   同期関数は計算結果の返却タイミングが一定な関数で、非同期関数は不定な関数である。非同期関数の具体例として外部のサーバとのHTTP通信がある。例えばサーバと通信するアプリケーションを例にとると、同期関数のみでプログラミングしたとすると通信の完了を待たねば後続の処理を行うことができないが、非同期の関数として通信を実装すれば先方のレスポンスを待つことなく後続の処理に取りかかることができる。
+
   [MDN - Promise](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 
-## What is event loop?
+## イベントループについて説明せよ。
 
  イベントループとは、javascript処理エンジンのランタイムにおける実行モデルである。
  前提として、実行中の関数はスタックとして積み重ねられている。実行中の関数の内部である関数が呼ばれると、新しく実行中の関数としてそれがスタックにプッシュされる。
@@ -376,11 +390,11 @@ while(queue.waitForMessage()){
 
 [MDN - event loop](https://developer.mozilla.org/ja/docs/Web/JavaScript/EventLoop)
 
-## What is the difference between call stack and task queue?
+## コールスタックとタスクキューについて説明せよ。
 
  上述イベントループで説明したスタック / キューがそれぞれコールスタック / タスクキューである。スタックは関数の入れ子構造をスタックとして取り扱い、タスクキューはメッセージを管理する。
 
-## What are the differences between variables created using let, var or const?
+## let,var,const の違いについて説明せよ。
 
   `var` はjsの初期からある変数宣言で、`const`および`let`はES2015によって追加された変数宣言である。まず、`var`と`let`/`const`の大きな違いは、後者においては、利用可能な期間がそのスコープにいる間に限定されているということである。これは意図しない空間汚染を防ぐのに役立つ。そのため、あらゆる局面で新しいコードでは```let``const```を利用すべきである。
 
@@ -388,13 +402,13 @@ while(queue.waitForMessage()){
 
   [MDN - let](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/let)
 
-## What are the differences between ES6 class and ES5 function constructors?
+## ES6のクラスとES5の関数コンストラクタの違いについて説明せよ。
 
  ES6によって追加されたクラス構文は、ES5の関数コンストラクタに比べてよりC++ライクなスタイルを提供するものである。ユーザはクラス コンストラクタや、メンバ変数、オブジェクトメソッド、インスタンスの作成や継承などを行うことができる。ただし実際のところそれらは糖衣構文であり、両者に差異はない。どちらもプロトタイプチェーンに基づくものである。
 
   [MDN - class](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Classes)
 
-## Can you offer a use case for the new arrow => function syntax? How does this new syntax differ from other functions?
+## アロー関数の例を示せ。また、アロー関数がほかの関数と異なる点についても説明せよ。
 
 ex.
 
@@ -412,24 +426,13 @@ p.then( (v) => {
 
 処理の面では特に`this`を束縛しないことに意義がある。従来の場合、関数の生成とともに`this`を新しく関数内で作りだしていた。ES6のクラス記法で`this`を頻繁に使用する点を考慮し、その定義と競合しない無名関数の宣言として便利に利用できる。また、単に非メソッドの関数を作り出すのに省略記法として使うのも便利である。
 
-## What advantage is there for using the arrow syntax for a method in a constructor?
+## コンストラクタ メソッド内部でアロー関数を使う利点について説明せよ。
 
-上述の通り`this`を束縛しない点が重要である。メンバ変数にアクセスしたい際に、そのメソッドのクロージャによって作られる`this`を意識しないで済む。すなわち、
+上述の通り`this`を束縛しない点が重要である。メンバ変数にアクセスしたい際に、そのメソッドのクロージャによって作られる`this`を意識しないで済む。
 
-```js
-function hoge(){
-  this.fuga = "empty";
-
-  method(() =>{
-    this.fuga = "spam"
-  })
-}
-```
-
-`hoge.method()`に渡す関数はアロー関数である必要がある。仮に`Function` を宣言するとその内部に新しく`this`が作成されることになり、`empty`が`spam`に置き換わらない。
 [MDN - アロー関数](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
 
-## What is the definition of a higher-order function?
+## 高階関数について説明せよ。
 
 高階関数とは関数を返す関数である。すなわち
 
@@ -443,14 +446,14 @@ const spam = ham();
 
 のような関数である。
 
-## Can you give an example for destructuring an object or an array?
+## 分割代入の例を一つ示せ。
 
 ```js
 let a,b;
 [a,b] = [10,20]
 ```
 
-## Can you give an example of generating a string with ES6 Template Literals?
+## テンプレートリテラルの例を一つ示せ。
 
 ```js
 getTemlateLiteral(){
@@ -459,7 +462,7 @@ getTemlateLiteral(){
 }
 ```
 
-## Can you give an example of a curry function and why this syntax offers an advantage?
+## カリー化の例を挙げ、その利点を説明せよ。
 
 ```js
 function div(x,y){
@@ -485,7 +488,7 @@ console.log(cdiv(1)(2)) // => 0.5
 
 [wikipedia - カリー化](https://b.hatena.ne.jp/entry/s/ja.wikipedia.org/wiki/%E3%82%AB%E3%83%AA%E3%83%BC%E5%8C%96)
 
-## What are the benefits of using spread syntax and how is it different from rest syntax?
+## スプレッド構文について説明せよ。また、rest構文との違いについても説明せよ。
 
 ```js
 const arr = [1,2,3,4,5]
@@ -507,16 +510,16 @@ function rest(...arr){
 rest(10,20) // => object, [10,20]
 ```
 
-このとき関数内での`arr`はリストオブジェクト。これは不特定多数の引数をまとめてリスト化し引き取るものである。
+このとき関数内での`arr`はリストオブジェクトである。これは不特定多数の引数をまとめてリスト化し引き取るものである。記号は同じだが両者は別の者である。
 
-## How can you share code between files?
+## ファイルを越えてコードを共有する仕方を説明せよ。
 
 `import` / `export`を用いる。
 
 [MDN - import](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/import)
 
-## Why you might want to create static class members?
+## static class methodを作成するモチベーションについて説明せよ。
 
-`static`はユーティリティ関数として主に用いられる。`static`によって宣言されたメソッドは、クラスのインスタンスからは呼び出せず、直接クラスそのものから呼び出して用いる。例えば`StringUtil`クラスのインスタンスを作成するのではなく`StringUtil.myStaticFunc()`などと用いる。
+`static`はユーティリティ関数をひとまとめにするのに用いられる。`static`によって宣言されたメソッドは、クラスのインスタンスからは呼び出せず、直接クラスそのものから呼び出して用いる。例えば`StringUtil`クラスのインスタンスを作成するのではなく`StringUtil.myStaticFunc()`などと用いる。
 
 [MDN - static](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Classes/static)
